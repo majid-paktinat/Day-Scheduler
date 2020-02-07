@@ -6,13 +6,6 @@ var cMin;
 var cSec;
 var cWait;
 var myList = [];
-// document.querySelector('#text-9AM').style.height="60px";
-// document.querySelector('#text-9AM').style.textAlign="left";
-// document.querySelector('#text-9AM').readOnly=false;
-// document.querySelector('#text-9AM').style.backgroundColor="lightgray";
-// document.querySelector('#button-12PM').disabled=false;
-// document.querySelector('#text-12PM').disabled=true;
-// document.querySelector('#text-12PM').style.backgroundColor="Azure";
 
 
 ldScheduler();
@@ -27,8 +20,6 @@ function ldScheduler() {
     cWait = 3600 - ((cMin*60)+cSec); console.log("cWait: "+cWait);
     //setTimeout(majid, cWait);
 
-
-    // document.querySelector('#text-9AM').textContent = arrLs[0].split("|")[1];
     document.querySelector('#text-9AM').value = arrLs[0].split("|")[1]; 
     document.querySelector('#text-10AM').value = arrLs[1].split("|")[1];
     document.querySelector('#text-11AM').value = arrLs[2].split("|")[1];
@@ -49,23 +40,19 @@ function ldScheduler() {
     document.querySelector('#button-3PM').addEventListener('click', saveBtn);
     document.querySelector('#button-4PM').addEventListener('click', saveBtn);
     document.querySelector('#button-5PM').addEventListener('click', saveBtn);
-
-    myList = fetchFromLocalStorageObject("SoccerQuiz");
+    
+    myList = fetchFromLocalStorageObject(moment().format("YYYY-MM-DD"));
 
     // make all colors
     changeColor();
 
-    //document.querySelector('#todayID').textContent = moment();
+    document.querySelector("#workDay").innerHTML += `<font color='red' size='5'> ${moment().format("LLLL")}</font>`;
 
 }
 
 function saveBtn(event) {
-    console.log(event.target.parent);
-    //console.log(`text-${(event.target.id).split("-")[1]}`);
-    //document.querySelector(`#text-${(event.target.id).split("-")[1]}`).value;
     addToLocalStorageObject(moment().format("YYYY-MM-DD"), (event.target.id).split("-")[1], document.querySelector(`#text-${(event.target.id).split("-")[1]}`).value)
     arrLs = fetchFromLocalStorageObject(moment().format("YYYY-MM-DD"), (event.target.id).split("-")[1]);
-    //console.log(arrLs[0].split("|")[1]);
 }
 
 function addToLocalStorageObject(name, key, value) {
@@ -74,9 +61,9 @@ function addToLocalStorageObject(name, key, value) {
 
     // If no existing data, create an array
     // Otherwise, convert the localStorage string to an array
-    existing = existing ? JSON.parse(existing) : { "9AM": "Default 1", "10AM": "Default 2", "11AM": "Default 3", 
-                                                    "12PM": "Default 4", "1PM": "Default 5", "2PM": "Default 6",
-                                                    "3PM": "Default 7", "4PM": "Default 8", "5PM": "Default 9" };
+    existing = existing ? JSON.parse(existing) : { "9AM": "", "10AM": "", "11AM": "", 
+                                                    "12PM": "", "1PM": "", "2PM": "",
+                                                    "3PM": "", "4PM": "", "5PM": "" };
 
     // Add new data to localStorage Array
     existing[key] = value;
@@ -91,21 +78,16 @@ function fetchFromLocalStorageObject(name, key = "") {
 
     // If no existing data, create an array
     // Otherwise, convert the localStorage string to an array
-    existing = existing ? JSON.parse(existing) : { "9AM": "Default 1", "10AM": "Default 2", "11AM": "Default 3", 
-                                                    "12PM": "Default 4", "1PM": "Default 5", "2PM": "Default 6",
-                                                    "3PM": "Default 7", "4PM": "Default 8", "5PM": "Default 9" };
+    existing = existing ? JSON.parse(existing) : { "9AM": "", "10AM": "", "11AM": "", 
+                                                    "12PM": "", "1PM": "", "2PM": "",
+                                                    "3PM": "", "4PM": "", "5PM": "" };
 
     let myArrList = [];
 
     for (key in existing) {
         var infoJSON = existing[key];
         myArrList.push(key + "|" + infoJSON);
-        // console.log(infoJSON.Name);
-        // console.log(infoJSON.CorrectAnswers);
-        // console.log(infoJSON.TimeLeft);
-        // console.log(infoJSON.Date);
-        // console.log('--------------');
-        //console.log(myArrList);
+        
     }
 
     return myArrList;
@@ -185,16 +167,5 @@ function changeControl(ctrlID){
     document.querySelector(`#button-${ctrlID}`).disabled = true;
 }
 
-console.log("------------------");
-// console.log(moment().format("YYYY-MM-DD"));
-// console.log(moment().format("YYYY-MM-DD-HH-MM-SS-A"));
-// console.log(moment().format("HHA"));
-// console.log(moment().calendar("s")); /////
-// console.log(moment().from(moment(today)));
-// console.log(moment().format("mm:ss"));
-// console.log(moment().add(1, 'h'));
-// console.log(moment().add(1, 'seconds'));
-// moment().startOf('second')
-// moment().toNow()
-console.log("------------------");
+
 
