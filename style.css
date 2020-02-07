@@ -1,0 +1,33 @@
+[id^="label-"]{
+    height: 60px;
+    width: 60px;
+    padding-top: 5px; 
+    padding-bottom: 30px; 
+    border: 1px solid lightgray; 
+    border-left-style: none;
+    text-align: right;
+    color: gray;
+}
+[id^="text-"] {
+    width: 80%; 
+    padding-top: 5px; 
+    padding-bottom: 30px; 
+    border: 1px solid lightgray; 
+    margin-right: 0px;  
+    padding-left: 10px
+}
+[id^="button-"]{
+    height: 60px;
+    margin-top: 20px;
+    background-color: lightslategray;
+    font-size: 14px;
+}
+#workDay{
+    height: 100px;
+    margin-top: 10px;
+    background-color: azure;
+    font-size: 40px;
+    text-align: center;
+    border: 1px solid lightgray; 
+    margin-bottom: 0px;
+}
