@@ -9,7 +9,7 @@
     color: gray;
 }
 [id^="text-"] {
-    width: 80%; 
+    width: 85%; 
     padding-top: 5px; 
     padding-bottom: 30px; 
     border: 1px solid lightgray; 
@@ -23,11 +23,11 @@
     font-size: 14px;
 }
 #workDay{
-    height: 150px;
-    margin-top: 10px;
+    height: 100px;
+    margin-top: 2px;
+    margin-bottom: 0px;
     background-color: azure;
-    font-size: 40px;
     text-align: center;
     border: 1px solid lightgray; 
-    margin-bottom: 0px;
+    padding-top: 5px;    
 }

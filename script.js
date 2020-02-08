@@ -46,8 +46,10 @@ function ldScheduler() {
     // make all colors
     changeColor();
 
-    document.querySelector("#workDay").innerHTML += `<font color='red' size='5'> ${moment().format("LLLL")}</font>`;
-
+    document.querySelector("#workDay").innerHTML += `
+                                                    <font size=5px>Work Day Scheduler</font><br>
+                                                    <font size=2px color=black>A simple calendar app for scheduling your work day</font><br>
+                                                    <font color='brown' size=4px><b> ${moment().format("dddd, MMMM Do ")}</b></font>`;
 }
 
 function saveBtn(event) {
