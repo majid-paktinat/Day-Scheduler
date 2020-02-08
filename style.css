@@ -6,7 +6,7 @@
     border: 1px solid lightgray; 
     border-left-style: none;
     text-align: right;
-    color: gray;
+    color: steelblue;
 }
 [id^="text-"] {
     width: 85%; 
