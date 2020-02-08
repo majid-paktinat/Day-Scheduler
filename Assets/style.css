@@ -1,12 +1,13 @@
 [id^="label-"]{
     height: 60px;
     width: 60px;
-    padding-top: 5px; 
+    padding-top: 7.5px; 
     padding-bottom: 30px; 
     border: 1px solid lightgray; 
     border-left-style: none;
     text-align: right;
     color: steelblue;
+    font-size: smaller;
 }
 [id^="text-"] {
     width: 85%; 
